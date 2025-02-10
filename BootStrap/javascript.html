@@ -6,26 +6,80 @@
 </head>
 <body>
   <h1>Hello World</h1>
+  <table id="data" border="2">
+    <thead>
+      <tr>
+        <th>sl.No</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>RAM</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
   <script>
-    var message ="Hello India";
-    console.log(message)
-  console.log(typeof(message));
+    function array() {
+      let number = [5, 20, 82, 50];
 
-  var age=23;
-  console.log(typeof(age));
+      // Add a new element to the end of the array
+      let ref = number.push(100);
+      console.log("After adding new element:", number);
 
-  var h;
-  console.log(typeof(h));
+      // Remove the last element from the array
+      let remove = number.pop();
+      console.log("Removed element:", remove);
+      console.log("After removing an element:", number);
 
-  var isGet=false;
-  console.log(typeof(isGet));
+      // Add a new element to the beginning of the array
+      let addNewElement = number.unshift(200);
+      console.log("After adding an element to the beginning:", number);
 
-let product ="laptop";
-console.log(product);
-product="Fan";
-console.log(product);
+      // Remove the first element from the array
+      let removedElement = number.shift();
+      console.log("Removed first element:", removedElement);
+      console.log("After removing the first element:", number);
+    }
 
+    let listOfLaptop = [];
+
+    let laptop = {name: "Acer", qty: 5, ram: "DDR5"};
+    let laptop1 = {name: "HP", qty: 8, ram: "DDR7"};
+    let laptop2 = {name: "Dell", qty: 2, ram: "DDR4"};
+
+    listOfLaptop.push(laptop);
+    listOfLaptop.push(laptop1);
+    listOfLaptop.push(laptop2);
+
+    for (let i = 0; i < listOfLaptop.length; i++) {
+      console.log(listOfLaptop[i].name);
+    }
+
+    listOfLaptop.forEach((value, key) => {
+      console.log(value, key);
+      // Append rows to the table with laptop details
+      document.querySelector("#data tbody").innerHTML += `
+        <tr>
+          <td>${key + 1}</td>
+          <td>${value.name}</td>
+          <td>${value.qty}</td>
+          <td>${value.ram}</td>
+        </tr>
+      `;
+    });
+
+    // map reduce filter
+
+    var numbers = [10,50,11,30];
+    console.log(numbers);
+    numbers.map((item,index)=> console.log(item+3));
+
+    const filtered = numbers.filter((item,index)=> item>20);
+    console.log(filtered);
+
+    const reducing = numbers.reduce((pre,curr) => pre+curr);
+    console.log(reducing);
   </script>
-  
 </body>
 </html>
